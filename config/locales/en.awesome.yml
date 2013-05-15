@@ -1,0 +1,9 @@
+en:
+  awesome:
+    flash:
+      controller:
+        sessions:
+          create:
+            danger:
+              header: ''
+              body: 'You could not be signed in. Please try again.'
