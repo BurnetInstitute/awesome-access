@@ -14,18 +14,22 @@
         <%= flash_messages %>
         <%= form_for :session, url: session_path, html: {class: "form-horizontal"} do |form| %>
         <div class="container">
+          <div class="row">
             <div class="input-group">
-              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+              <span class="input-group-addon glyphicon glyphicon-envelope"></span>
               <input id="email" name="email" placeholder="Email" size="30" type="email" value="" />
             </div>
-            <br>
+          </div>
+          <div class="row">
             <div class="input-group">
               <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
               <input id="password" name="password" placeholder="Password" size="30" type="password" value="" />
             </div>
-            <br>
+          </div>
+          <div class="row">
             <%= link_to 'Forgot your password?', :root %>
             <button type="submit" class="btn btn-primary pull-right">Sign in</button>
+          </div>
         </div>
         <% end %>
       </div><!-- /.modal-body -->
