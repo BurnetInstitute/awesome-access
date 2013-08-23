@@ -7,10 +7,16 @@ module AwesomeAccess
     module ClassMethods
       def awesome_accessify
         include InstanceMethods
-        private
           has_secure_password
           has_and_belongs_to_many :roles
+
+          validates :password, presence: {on: :create}, confirmation: true, length: {minimum: 6}, allow_blank: true,  reduce: true
+          validates :email, presence: true, uniqueness: true, email: {allow_blank: true}, reduce: true
+          validates :password_confirmation, presence: true, if: Proc.new { |p| ! p.password.blank? }, reduce: true
+
+          after_update :deliver_password_reset_notification
       end
+
       module InstanceMethods
         def has_role?(role)
           return true if self.roles_as_indentifier.include? 'administrator'
@@ -32,6 +38,21 @@ module AwesomeAccess
           end
           roles
         end
+
+        def has_role_id? (id)
+          self.role_ids.include? id
+        end
+
+        def reset_password
+          self.password_token = SecureRandom.hex
+          self.save
+        end
+
+        private
+        # TODO: Remove hard link to People model
+          def deliver_password_reset_notification
+            PeopleMailer.password_reset(self).deliver unless self.password_token.blank?
+          end
       end # InstaceMethods
     end # ClassMethods
 

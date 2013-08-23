@@ -1,0 +1,20 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Forgot your password</h4>
+      </div>
+      <div class="modal-body">
+        <%= flash_messages %>
+        <p><%= link_to ('<span class="glyphicon glyphicon-arrow-left"></span>' + ' Back to sign in').html_safe, :root %></p>
+      </div><!-- /.modal-body -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dalog -->
+
+<script type="text/javascript">
+  $(function() {
+    $('.modal').modal({
+      backdrop: 'static'
+    });
+  });
+</script>

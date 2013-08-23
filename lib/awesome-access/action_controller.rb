@@ -7,9 +7,13 @@ module AwesomeAccess
       end
 
       def authenticate(email, password)
-          if person = Person.find_by_email(email).try(:authenticate, password)
+          if person = Person.where(email: email).where(active: true).first.try(:authenticate, password)
             session[:awesome_access] = {}
             session[:awesome_access][:person_id] = person.id
+            if person.password_token
+              person.password_token = ''
+              person.save
+            end
             return true
           end
           false
