@@ -14,6 +14,8 @@ module AwesomeAccess
               person.password_token = ''
               person.save
             end
+            person.last_seen = DateTime.now
+            person.save
             return true
           end
           false

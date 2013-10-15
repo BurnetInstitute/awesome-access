@@ -47,7 +47,7 @@ class PasswordsController < ApplicationController
   private
 
     def validate_token
-      redirect_to root_url unless params[:email] and params[:password_token]
+      redirect_to root_url and return unless params[:email] and params[:password_token]
       person = Person.where(email: params[:email]).first_or_initialize
       redirect_to root_url unless person.persisted? and person.password_token == params[:password_token]
     end

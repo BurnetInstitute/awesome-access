@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
 
-  awesome_accessify
+  awesome_accessify_person
 
 end
