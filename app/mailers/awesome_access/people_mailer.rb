@@ -1,4 +1,4 @@
-class PeopleMailer < ActionMailer::Base
+class AwesomeAccess::PeopleMailer < ActionMailer::Base
 
   default from: 'Awesome Access <no-reply@nowhere.local>'
 

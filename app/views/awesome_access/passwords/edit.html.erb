@@ -6,7 +6,7 @@
       </div>
       <div class="modal-body">
         <%= flash_messages %>
-        <%= form_for :password, url: password_path, method: :put, html: {class: 'form-horizontal'} do |form| %>
+        <%= form_for :password, url: self.send("#{AwesomeAccess.configuration.passwords_controller.to_s.singularize}_path"), method: :put, html: {class: 'form-horizontal'} do |form| %>
         <%= hidden_field_tag 'email', @person.email %>
         <%= hidden_field_tag 'password_token', @person.password_token %>
           <div class="form-group">

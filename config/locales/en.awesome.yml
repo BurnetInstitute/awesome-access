@@ -21,4 +21,11 @@ en:
           create:
             danger:
               header: ''
+              body: 'You have successfully signed in.'
+            success:
+              header: ''
               body: 'You could not be signed in. Please try again.'
+          destroy:
+            success:
+              header: ''
+              body: 'You have successfully signed out.'

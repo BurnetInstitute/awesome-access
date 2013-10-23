@@ -2,11 +2,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Forgot your password</h4>
+        <h4 class="modal-title">Reset your password</h4>
       </div>
       <div class="modal-body">
         <%= flash_messages %>
-        <p><%= link_to ('<span class="glyphicon glyphicon-arrow-left"></span>' + ' Back to sign in').html_safe, :root %></p>
+        <p><%= link_to ('<span class="glyphicon glyphicon-arrow-left"></span>' + ' Back to sign in').html_safe, self.send("new_#{AwesomeAccess.configuration.sessions_controller.to_s.singularize}_path") %></p>
       </div><!-- /.modal-body -->
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dalog -->

@@ -1,0 +1,33 @@
+In controllers to protect:
+
+  include AwesomeAccess::ActionControllerConcern
+
+  before_filter { |c| c.awesome_access_restrict new_session_path }
+
+
+In controller for passwords:
+
+include AwesomeAccess::PasswordControllerConcern
+
+
+In controller for sessions:
+
+include AwesomeAccess::SessionsControllerConcern
+
+
+
+In user model:
+
+include AwesomeAccess::UserConcern
+
+
+In role model:
+
+include AwesomeAccess::RoleConcern
+
+
+
+Add appropriate routing:
+
+resource :password, except: [:show, :destroy]
+resource :session, only: [:new, :create, :destroy]
