@@ -1,9 +1,11 @@
 # AwesomeAccess.configure do |config|
-#   config.user_object = :person
-#   config.session_object = :session
+#   config.user_model = 'Person'
+#   config.session_model = 'Session'
 
 #   config.passwords_controller = :administration_password
 #   config.sessions_controller = :administration_session
+
+#   config.user_mailer = 'Administration::PersonMailer'
 
 #   config.redirect_restricted = :new_administration_session
 #   config.redirect_signed_in = :administration_root
@@ -15,4 +17,6 @@
 #   config.edit_passwords_view_path = '/awesome_access/passwords/edit'
 #   config.update_passwords_view_path = '/awesome_access/passwords/update'
 #   config.new_sessions_view_path = '/awesome_access/sessions/new'
+
+#   config.password_reset_view_path = '/awesome_access/user_mailer'
 # end

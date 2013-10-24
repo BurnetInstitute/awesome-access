@@ -7,7 +7,7 @@ PATH
 PATH
   remote: ../awesome-tree
   specs:
-    awesome-tree (0.0.1)
+    awesome-tree (0.0.2)
       rails (~> 4.0.0)
 
 GEM

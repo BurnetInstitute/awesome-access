@@ -114,7 +114,7 @@ module AwesomeAccess::UserConcern
   private
   # TODO: Remove hard link to People model
     def deliver_password_reset_notification
-      PeopleMailer.password_reset(self).deliver unless self.password_token.blank?
+      AwesomeAccess.configuration.user_mailer.constantize.awesome_access_password_reset(self).deliver unless self.password_token.blank?
     end
 
 end

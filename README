@@ -1,29 +1,31 @@
+TODO: Clean up below.
+
 In controllers to protect:
 
   include AwesomeAccess::ActionControllerConcern
 
-  before_filter { |c| c.awesome_access_restrict new_session_path }
+  before_filter awesome_access_restrict
 
 
 In controller for passwords:
 
-include AwesomeAccess::PasswordControllerConcern
+  include AwesomeAccess::PasswordControllerConcern
 
 
 In controller for sessions:
 
-include AwesomeAccess::SessionsControllerConcern
+  include AwesomeAccess::SessionsControllerConcern
 
 
 
 In user model:
 
-include AwesomeAccess::UserConcern
+  include AwesomeAccess::UserConcern
 
 
 In role model:
 
-include AwesomeAccess::RoleConcern
+  include AwesomeAccess::RoleConcern
 
 
 
@@ -31,3 +33,33 @@ Add appropriate routing:
 
 resource :password, except: [:show, :destroy]
 resource :session, only: [:new, :create, :destroy]
+
+
+
+# AwesomeAccess.configure do |config|
+#   config.user_model = 'Person'
+#   config.session_model = 'Session'
+
+#   config.passwords_controller = :administration_password
+#   config.sessions_controller = :administration_session
+
+#   config.user_mailer = 'Administration::PersonMailer'
+
+#   config.redirect_restricted = :new_administration_session
+#   config.redirect_signed_in = :administration_root
+#   config.redirect_signed_out = :new_administration_session
+#   config.redirect_invalid_token = :new_administration_session
+
+#   config.show_passwords_view_path = '/awesome_access/passwords/show'
+#   config.new_passwords_view_path = '/awesome_access/passwords/new'
+#   config.edit_passwords_view_path = '/awesome_access/passwords/edit'
+#   config.update_passwords_view_path = '/awesome_access/passwords/update'
+#   config.new_sessions_view_path = '/awesome_access/sessions/new'
+
+#   config.password_reset_view_path = '/awesome_access/user_mailer'
+# end
+
+
+
+
+config.action_mailer.default_url_options = { host: 'yourhost' }
