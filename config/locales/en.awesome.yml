@@ -22,3 +22,10 @@ en:
             danger:
               header: ''
               body: 'You could not be signed in. Please try again.'
+            success:
+              header: ''
+              body: 'You have successfully signed in.'
+          destroy:
+            success:
+              header: ''
+              body: 'You have successfully signed out.'

@@ -6,25 +6,25 @@
       </div>
       <div class="modal-body">
         <%= flash_messages %>
-        <%= form_for :session, url: session_path, html: {class: "form-horizontal"} do |form| %>
-        <div class="container">
+        <%= form_for :session, url: self.send("#{AwesomeAccess.configuration.sessions_controller.to_s.singularize}_path"), html: {class: "form-horizontal"} do |form| %>
           <div class="form-group">
-            <div class="input-group">
+            <div class="input-group col-lg-12">
               <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
               <input class="form-control" id="email" name="email" placeholder="Email" size="30" type="email" value="" />
             </div>
           </div>
           <div class="form-group">
-            <div class="input-group">
+            <div class="input-group col-lg-12">
               <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
               <input class="form-control" id="password" name="password" placeholder="Password" size="30" type="password" value="" />
             </div>
           </div>
           <div class="row">
-            <%= link_to 'Forgot your password?', new_password_path %>
-            <button type="submit" class="btn btn-primary pull-right">Sign in</button>
+            <div class="col-lg-12">
+              <%= link_to 'Forgot your password?', self.send("new_#{AwesomeAccess.configuration.passwords_controller.to_s.singularize}_path") %>
+              <button type="submit" class="btn btn-primary pull-right">Sign in</button>
+            </div>
           </div>
-        </div><!-- /.container -->
         <% end %>
       </div><!-- /.modal-body -->
     </div><!-- /.modal-content -->

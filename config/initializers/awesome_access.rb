@@ -1,41 +1,3 @@
-TODO: Clean up below.
-
-In controllers to protect:
-
-  include AwesomeAccess::ActionControllerConcern
-
-  before_filter awesome_access_restrict
-
-
-In controller for passwords:
-
-  include AwesomeAccess::PasswordControllerConcern
-
-
-In controller for sessions:
-
-  include AwesomeAccess::SessionsControllerConcern
-
-
-
-In user model:
-
-  include AwesomeAccess::UserConcern
-
-
-In role model:
-
-  include AwesomeAccess::RoleConcern
-
-
-
-Add appropriate routing:
-
-resource :password, except: [:show, :destroy]
-resource :session, only: [:new, :create, :destroy]
-
-
-
 # AwesomeAccess.configure do |config|
 #   config.user_model = 'Person'
 #   config.session_model = 'Session'
@@ -58,8 +20,3 @@ resource :session, only: [:new, :create, :destroy]
 
 #   config.password_reset_view_path = '/awesome_access/user_mailer'
 # end
-
-
-
-
-config.action_mailer.default_url_options = { host: 'yourhost' }
