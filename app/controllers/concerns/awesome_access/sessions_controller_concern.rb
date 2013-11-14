@@ -9,7 +9,7 @@ module AwesomeAccess::SessionsControllerConcern
   end
 
   def new
-    redirect_to(AwesomeAccess.configuration.redirect_signed_in) if awesome_access_person
+    redirect_to(AwesomeAccess.configuration.redirect_signed_in) and return if awesome_access_person
     render AwesomeAccess.configuration.new_sessions_view_path
   end
   def create
