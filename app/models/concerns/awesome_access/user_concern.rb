@@ -9,8 +9,6 @@ module AwesomeAccess::UserConcern
     validates :password, presence: {on: :create}, confirmation: true, length: {minimum: 6}, allow_blank: true,  reduce: true
     validates :email, presence: true, uniqueness: true, email: {allow_blank: true}, reduce: true
     validates :password_confirmation, presence: true, if: Proc.new { |p| ! p.password.blank? }, reduce: true
-
-    after_update :deliver_password_reset_notification
   end
 
   # By identifier
@@ -108,7 +106,12 @@ module AwesomeAccess::UserConcern
 
   def reset_password
     self.password_token = SecureRandom.hex
-    self.save
+    if self.save
+      deliver_password_reset_notification
+      true
+    else
+      false
+    end
   end
 
   private
