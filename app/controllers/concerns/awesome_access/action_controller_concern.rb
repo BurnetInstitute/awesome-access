@@ -12,18 +12,21 @@ module AwesomeAccess::ActionControllerConcern
     end
 
     def awesome_access_authenticate(email, password)
-        if person = Person.where(email: email).where(active: true).first.try(:authenticate, password)
-          session[:awesome_access] = {}
-          session[:awesome_access][:person_id] = person.id
-          if person.password_token
-            person.password_token = ''
+      if person = Person.where(email: email).where(active: true).first
+        if person.password_digest != nil
+          if person.authenticate password
+            session[:awesome_access] = {}
+            session[:awesome_access][:person_id] = person.id
+            if person.password_token
+              person.password_token = ''
+            end
+            person.last_seen = DateTime.now
             person.save
+            return true
           end
-          person.last_seen = DateTime.now
-          person.save
-          return true
         end
-        false
+      end
+      false
     end
 
     def awesome_access_person
