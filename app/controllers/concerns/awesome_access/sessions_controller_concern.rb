@@ -23,8 +23,7 @@ module AwesomeAccess::SessionsControllerConcern
 
   def destroy
     awesome_access_destroy
-    # set_flash :notice
-    redirect_to AwesomeAccess.configuration.redirect_signed_out
+    redirect_to AwesomeAccess.configuration.redirect_signed_out and set_flash :success
   end
 
 end
