@@ -14,16 +14,16 @@ module AwesomeAccess::SessionsControllerConcern
   end
   def create
     if awesome_access_authenticate(params[:email], params[:password])
-      redirect_to AwesomeAccess.configuration.redirect_signed_in and set_flash :success
+      redirect_to AwesomeAccess.configuration.redirect_signed_in and set_flash 'success'
     else
-      set_flash :danger, now: true
+      set_flash 'danger', now: true
       render AwesomeAccess.configuration.new_sessions_view_path
     end
   end
 
   def destroy
     awesome_access_destroy
-    redirect_to AwesomeAccess.configuration.redirect_signed_out and set_flash :success
+    redirect_to AwesomeAccess.configuration.redirect_signed_out and set_flash 'success'
   end
 
 end

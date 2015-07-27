@@ -18,5 +18,5 @@
 #   config.update_passwords_view_path = '/awesome_access/passwords/update'
 #   config.new_sessions_view_path = '/awesome_access/sessions/new'
 
-#   config.password_reset_view_path = '/awesome_access/user_mailer'
+#   config.password_reset_mailer_folder_path = '/awesome_access/person_mailer'
 # end
