@@ -8,7 +8,7 @@ module AwesomeAccess::UserMailerConcern
 
   def awesome_access_password_reset(person)
     @person = person
-    mail to: @person.email, subject: 'Reset your password', template_path: AwesomeAccess.configuration.password_reset_view_folder_path
+    mail to: @person.email, subject: 'Reset your password', template_path: AwesomeAccess.configuration.password_reset_mailer_folder_path
   end
 
 end
