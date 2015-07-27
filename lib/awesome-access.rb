@@ -28,7 +28,7 @@ module AwesomeAccess
       :edit_passwords_view_path,
       :update_passwords_view_path,
       :new_sessions_view_path,
-      :password_reset_view_folder_path
+      :password_reset_mailer_folder_path
 
     def initialize
       @user_model = nil
@@ -50,7 +50,7 @@ module AwesomeAccess
       @update_passwords_view_path = '/awesome_access/passwords/update'
       @new_sessions_view_path = '/awesome_access/sessions/new'
 
-      @password_reset_view_folder_path = 'awesome_access/user_mailer'
+      @password_reset_mailer_folder_path = 'awesome_access/user_mailer'
     end
   end
 end
